@@ -1,0 +1,269 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    /* background-color: rgb(26, 26, 26); */
+    background-image: url("connect4background.jpg");
+    background-size: auto;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.7;
+}
+
+.slot {
+    max-width: 100px;
+    max-height: 100px;
+    min-width: 80px;
+    min-height: 80px;
+    width: 7vw;
+    height: 7vw;
+    background-color: rgba(255, 0, 0, 0.035);
+    z-index: -2;
+}
+.slot:hover {
+    cursor: grab;
+}
+
+.hole {
+    max-width: 80px;
+    max-height: 80px;
+    min-width: 50px;
+    min-height: 50px;
+    width: 7vw;
+    height: 7vw;
+    border-radius: 50%;
+    border: 2px solid lime;
+    position: relative;
+    top: 0.8vh;
+    left: 0.5vw;
+}
+
+.player1 .hole {
+    background-color: red;
+}
+
+.player2 .hole {
+    background-color: blue;
+}
+
+.straightLine {
+    animation: straightLineAnim 0.5s alternate infinite;
+}
+@keyframes straightLineAnim {
+    50% {
+        background-color: lime;
+    }
+}
+
+#board {
+    display: flex;
+    width: 100%;
+    height: 70%;
+    position: absolute;
+    justify-content: center;
+    left: 0;
+    top: 230px;
+}
+
+#titleContainer {
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    font-family: "Courier New", Courier, monospace;
+    color: lime;
+    text-align: center;
+}
+
+#titleContainer > h1 {
+    top: 20px;
+    font-size: 3.5em;
+    font-weight: normal;
+}
+
+#titleContainer > h3 {
+    text-align: center;
+    position: absolute;
+    top: 110px;
+    font-size: 1em;
+    font-weight: lighter;
+}
+
+.winners {
+    justify-content: center;
+    font-family: "Courier New", Courier, monospace;
+    color: lime;
+    text-align: center;
+    top: 15vh;
+    position: absolute;
+    opacity: 1;
+    animation: winners 1.5s alternate infinite;
+}
+@keyframes winners {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.1;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+#player1won {
+    visibility: hidden;
+}
+#player2won {
+    visibility: hidden;
+}
+
+.infoContainer {
+    display: flex;
+    justify-content: space-between;
+    position: absolute;
+    top: 835px;
+    min-width: 600px;
+    max-width: 725px;
+    width: 40vw;
+    height: 80px;
+}
+.infoContainer > div {
+    font-family: "Courier New", Courier, monospace;
+    font: 1.2em;
+    color: lime;
+    height: 30px;
+    margin: 0 35px;
+}
+
+.buttonContainer {
+    position: absolute;
+    top: 955px;
+}
+.buttonContainer > button {
+    padding: 8px 12px;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.507);
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1em;
+    background-color: black;
+    color: lime;
+}
+.restartGame {
+    margin-left: 50px;
+}
+#newRound {
+    margin-right: 50px;
+    animation: appearBtn 3.5s, textColor 0.5s alternate infinite;
+}
+@keyframes appearBtn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@keyframes textColor {
+    0% {
+        color: transparent;
+    }
+    100% {
+        color: lime;
+    }
+}
+
+.displayNone {
+    display: none;
+}
+
+#redWin {
+    visibility: hidden;
+    position: absolute;
+}
+
+#red1 {
+    font-size: 100px;
+    position: absolute;
+    animation: move 2s alternate infinite;
+}
+#red2 {
+    font-size: 100px;
+    position: absolute;
+    animation: move 4s alternate infinite;
+}
+#red3 {
+    font-size: 100px;
+    position: absolute;
+    animation: move 6s alternate infinite;
+}
+#red4 {
+    font-size: 100px;
+    position: absolute;
+    animation: move 8s alternate infinite;
+}
+@keyframes move {
+    /* 0% {
+        transform: translate(-45vw, 0);
+    }
+    25% {
+        transform: translate(-45vw, 73vh);
+    }
+    50% {
+        transform: translate(10vw, 73vh);
+    }
+    75% {
+        transform: translate(10vw, 0);
+    }
+    100% {
+        transform: translate(-45vw, 0);
+    } */
+    0% {
+        transform: translate(-33vw, 0);
+    }
+    25% {
+        transform: translate(-33vw, 74vh);
+    }
+    50% {
+        transform: translate(25vw, 74vh);
+    }
+    75% {
+        transform: translate(25vw, 0);
+    }
+    100% {
+        transform: translate(-33vw, 0);
+    }
+}
+
+#blueWin {
+    visibility: hidden;
+}
+
+#blu1 {
+    font-size: 100px;
+    position: absolute;
+    animation: move 2s alternate infinite;
+}
+#blu2 {
+    font-size: 100px;
+    position: absolute;
+    animation: move 4s alternate infinite;
+}
+#blu3 {
+    font-size: 100px;
+    position: absolute;
+    animation: move 6s alternate infinite;
+}
+#blu4 {
+    font-size: 100px;
+    position: absolute;
+    animation: move 8s alternate infinite;
+}
